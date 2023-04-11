@@ -1,1 +1,1 @@
-# discrete-mathematics
+# generate-random-graph
