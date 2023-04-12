@@ -5,9 +5,10 @@ output:
     df_print: paged
 ---
 
-How many numbers are there between 1 and 10? 
-Count number of objects in list
+#Write function to count number of integers between m and n
 ```{r}
-x <- 2:9
-length(x)
+count <- function(m, n){
+length((m+1):(n-1))
+}
+count(6357,924310)
 ```
