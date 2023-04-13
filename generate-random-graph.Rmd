@@ -12,3 +12,8 @@ length((m+1):(n-1))
 }
 count(6357,924310)
 ```
+
+#Recall that an integer is one of the numbers in the list
+```{r}
+-5:5
+``` 
