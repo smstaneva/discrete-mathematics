@@ -17,3 +17,8 @@ count(6357,924310)
 ```{r}
 -5:5
 ``` 
+
+#Which integers are between 1 and 10?
+```{r}
+2:9
+```
