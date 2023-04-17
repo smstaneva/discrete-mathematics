@@ -5,7 +5,7 @@ output:
     df_print: paged
 ---
 
-#Write function to count number of integers i with:
+#Write function to count number of integers i in an open interval:
 $i \in (m;n)$
 
 ```{r}
@@ -15,7 +15,7 @@ length((m+1):(n-1))
 count(6357,924310)
 ```
 
-#Recall that an integer is one of the numbers in the list
+#Recall that an integer is one of the numbers in the list:
 ```{r}
 -5:5
 ``` 
@@ -25,7 +25,7 @@ count(6357,924310)
 2:9
 ```
 
-#How many integers i are there with:
+#How many integers i are there in a closed interval:
 $i \in [1;10]$ 
 
 ```{r}
@@ -35,10 +35,15 @@ length(m:n)
 count(1,10)
 ```
 
-#Think of a number i with:
+#Think of an integer i with:
 $i \in [1;10]$
 ```{r}
 sample(x=c(1:10),             #integers to choose from
        size=1                 #the number of integers to choose
        )
+```
+#Install package sets:
+```{r}
+install.packages('sets')
+library('sets')
 ```
