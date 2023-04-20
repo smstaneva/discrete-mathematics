@@ -5,14 +5,17 @@ output:
     df_print: paged
 ---
 
-Write function to count number of integers i in an open interval:
-$i \in (m;n)$
+**Fact 3** 
+<br /> $i \in [m;n]$
+<br /> $m \le n$
+<br /> $N_{i}$=?
+<br /> n-(m-1)=n-m+1
 
 ```{r}
 count <- function(m, n){
 length((m+1):(n-1))
 }
-count(6357,924310)
+count(-10,90)
 ```
 
 Recall that an integer is one of the numbers in the list:
@@ -23,29 +26,6 @@ Recall that an integer is one of the numbers in the list:
 Which integers are between 1 and 10?
 ```{r}
 2:9
-```
-
-How many integers i are there in a closed interval:
-$i \in [1;10]$ 
-
-```{r}
-count <- function(m, n){
-length(m:n)
-}
-count(1,10)
-```
-
-Think of an integer i with:
-$i \in [1;10]$
-```{r}
-sample(x=c(1:10),             #integers to choose from
-       size=1                 #the number of integers to choose
-       )
-```
-Install package sets:
-```{r}
-install.packages('sets')
-library('sets')
 ```
 
 **Fact 1**
@@ -62,10 +42,23 @@ length(m:n)
 count(1,924310)
 ``` 
 
-**Fact 2**
-<br /> m>1
-<br /> n>0
-<br /> $i \in [m;n]$
-<br /> $m \le n$
+Think of an integer i with:
+$i \in [1;10]$
+```{r}
+sample(x=c(1:10),             #integers to choose from
+       size=1                 #the number of integers to choose
+       )
+```
+Install package sets:
+```{r}
+install.packages('sets')
+library('sets')
+```
+
+$i \in [-8;10]$
 <br /> $N_{i}$=?
-<br /> n-(m-1)=n-m+1
+```{r}
+even_seq = seq(-8,10,by=2)
+even_seq
+length(even_seq)
+```
