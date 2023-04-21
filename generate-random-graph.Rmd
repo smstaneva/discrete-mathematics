@@ -62,3 +62,11 @@ even_seq = seq(-8,10,by=2)
 even_seq
 length(even_seq)
 ```
+$i \in [-7;9]$
+<br /> $N_{i}$=?
+```{r}
+odd_seq = seq(-7,9,by=2)
+odd_seq
+length(odd_seq)
+```
+
