@@ -55,13 +55,7 @@ install.packages('sets')
 library('sets')
 ```
 
-$i \in [-8;10]$
-<br /> $N_{i}$=?
-```{r}
-even_seq = seq(-8,10,by=2)
-even_seq
-length(even_seq)
-```
+
 $i \in [-7;9]$
 <br /> $N_{i}$=?
 ```{r}
@@ -70,3 +64,13 @@ odd_seq
 length(odd_seq)
 ```
 
+
+```{r}
+evens <- function(x){
+  subset(x,             #object to be subsetted
+         x %% 2 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+}
+evens(8:10)
+count <-evens(8:10)
+length(count)
+```
