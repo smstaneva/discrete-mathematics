@@ -74,3 +74,8 @@ evens(8:10)
 count <-evens(8:10)
 length(count)
 ```
+
+Calculate floor of integer:
+```{r}
+floor(3.14159265)
+```
