@@ -84,4 +84,17 @@ Calculate ceiling of integer(positive and negative):
 ```{r}
 ceiling(50.5)
 ```
+<br /> $i \in [1;n]$
+<br /> i=2k
+<br /> $N_{i}$=?
+<br /> $N_{i}$=n/2
 
+```{r}
+evens <- function(x){
+  subset(x,             #object to be subsetted
+         x %% 2 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+}
+evens(1:10)
+count <-evens(1:10)
+length(count)
+```
