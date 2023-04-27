@@ -75,7 +75,7 @@ count <-evens(8:10)
 length(count)
 ```
 
-Calculate floor of integer:
+Calculate floor of integer(positive and negative):
 ```{r}
 floor(3.14159265)
 ```
