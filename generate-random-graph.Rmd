@@ -79,3 +79,9 @@ Calculate floor of integer(positive and negative):
 ```{r}
 floor(3.14159265)
 ```
+
+Calculate ceiling of integer(positive and negative):
+```{r}
+ceiling(50.5)
+```
+
