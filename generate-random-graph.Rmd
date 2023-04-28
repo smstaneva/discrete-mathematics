@@ -98,6 +98,7 @@ count <-evens(1:10)
 length(count)
 ```
 
+**Fact 4** 
 <br />k>0
 <br />n>0
 <br /> $i \in [1;kn]$
@@ -112,4 +113,17 @@ multiples(1:10)
 count <-multiples(1:10)
 length(count)
 ```
-
+<br />k>0
+<br />n>0
+<br /> $i \in [1;1n]$
+<br /> $N_{i}$=?
+<br /> $N_{i}$=n/1
+```{r}
+multiples <- function(x){
+  subset(x,             #object to be subsetted
+         x %% 1 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+}
+multiples(1:10)
+count <-multiples(1:10)
+length(count)
+```
