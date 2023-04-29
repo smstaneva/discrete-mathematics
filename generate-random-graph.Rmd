@@ -113,17 +113,22 @@ multiples(1:10)
 count <-multiples(1:10)
 length(count)
 ```
-<br />k>0
-<br />n>0
-<br /> $i \in [1;1n]$
+
+<br />m>0
+<br /> $m \le n$
+<br /> $i \in [m;kn]$
 <br /> $N_{i}$=?
-<br /> $N_{i}$=n/1
+<br /> $N_{i}$=(n-m+1)/k
+m=4
+k=5
+n=100
+<br /> $N_{i}$=(100-4+1)/5=19.4 
 ```{r}
 multiples <- function(x){
   subset(x,             #object to be subsetted
-         x %% 1 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+         x %% 5 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
 }
-multiples(1:10)
-count <-multiples(1:10)
+multiples(4:100)
+count <-multiples(4:100)
 length(count)
 ```
