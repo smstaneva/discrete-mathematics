@@ -113,7 +113,7 @@ multiples(1:10)
 count <-multiples(1:10)
 length(count)
 ```
-
+**Theorem 1**
 <br />m>0
 <br /> $m \le n$
 <br /> $i \in [m;kn]$
@@ -132,3 +132,9 @@ multiples(4:100)
 count <-multiples(4:100)
 length(count)
 ```
+<br /> $\lfloor 4+100.5 \rfloor$
+```{r}
+floor(4+100.5)
+```
+
+
