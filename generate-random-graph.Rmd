@@ -136,5 +136,15 @@ length(count)
 ```{r}
 floor(4+100.5)
 ```
+```{r}
+install.packages('primes')
+```
+```{r}
+library(primes)
+```
 
-
+```{r}
+generate_primes(1,10)
+count<-generate_primes(1,10)
+length(count)
+```
