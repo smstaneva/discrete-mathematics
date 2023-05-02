@@ -148,3 +148,10 @@ generate_primes(1,10)
 count<-generate_primes(1,10)
 length(count)
 ```
+
+```{r}
+count <- function(m, n){
+generate_primes(m,n)
+}
+count(1,10)
+```
