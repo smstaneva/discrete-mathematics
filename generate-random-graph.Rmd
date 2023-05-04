@@ -163,3 +163,21 @@ count <- function(m,n){
 }
 count(1,10)
 ```
+
+
+```{r}
+count <- function(m,n){
+  newlist <- generate_primes(m,n)
+  length(newlist)
+}
+count(1,10)
+```
+
+```{r}
+count <- function(m,n){
+  generate_primes(m,n)
+  newlist <-generate_primes(m,n)
+  print(newlist)
+}
+length(count(1,10))
+```
