@@ -181,3 +181,15 @@ count <- function(m,n){
 }
 length(count(1,10))
 ```
+
+
+
+**Prime Number Theorem**
+```{r}
+count <- function(m,n){
+  generate_primes(m,n)
+  newlist <-generate_primes(m,n)
+  print(newlist)
+}
+length(count(1,2^4))
+```
