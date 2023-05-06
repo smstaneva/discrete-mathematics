@@ -1,10 +1,10 @@
 ---
 title: "R Notebook"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
-
 **Fact 3** 
 <br /> $i \in [m;n]$
 <br /> $m \le n$
@@ -13,19 +13,9 @@ output:
 
 ```{r}
 count <- function(m, n){
-length((m+1):(n-1))
+print((m+1):(n-1))
 }
-count(-10,90)
-```
-
-Recall that an integer is one of the numbers in the list:
-```{r}
--5:5
-``` 
-
-Which integers are between 1 and 10?
-```{r}
-2:9
+length(count(-10,90))
 ```
 
 **Fact 1**
