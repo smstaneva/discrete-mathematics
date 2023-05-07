@@ -5,19 +5,8 @@ output:
   html_document:
     df_print: paged
 ---
-**Fact 3** 
-<br /> $i \in [m;n]$
-<br /> $m \le n$
-<br /> $N_{i}$=?
-<br /> n-(m-1)=n-m+1
 
-```{r}
-count <- function(m, n){
-print((m+1):(n-1))
-}
-length(count(-10,90))
-```
-
+Count number of integers in a closed interval:
 **Fact 1**
 <br /> m=1
 <br /> n>0
@@ -31,6 +20,18 @@ length(m:n)
 }
 count(1,924310)
 ``` 
+**Fact 3** 
+<br /> $i \in [m;n]$
+<br /> $m \le n$
+<br /> $N_{i}$=?
+<br /> n-(m-1)=n-m+1
+
+```{r}
+count <- function(m, n){
+print((m+1):(n-1))
+}
+length(count(-10,90))
+```
 
 Think of an integer i with:
 $i \in [1;10]$
@@ -45,7 +46,7 @@ install.packages('sets')
 library('sets')
 ```
 
-
+Count odd integers in [-7;9]:
 $i \in [-7;9]$
 <br /> $N_{i}$=?
 ```{r}
@@ -54,7 +55,7 @@ odd_seq
 length(odd_seq)
 ```
 
-
+Subset object to keep evens only:
 ```{r}
 evens <- function(x){
   subset(x,             #object to be subsetted
@@ -74,6 +75,7 @@ Calculate ceiling of integer(positive and negative):
 ```{r}
 ceiling(50.5)
 ```
+Count even integers in [1;10]:
 <br /> $i \in [1;2n]$
 <br /> $N_{i}$=?
 <br /> $N_{i}$=n/2
@@ -139,13 +141,14 @@ count<-generate_primes(1,10)
 length(count)
 ```
 
+
 ```{r}
 count <- function(m, n){
 generate_primes(m,n)
 }
 count(1,10)
 ```
-
+Count number of prime numbers:
 ```{r}
 count <- function(m,n){
   newlist <- generate_primes(m,n)
@@ -154,7 +157,7 @@ count <- function(m,n){
 count(1,10)
 ```
 
-
+Generate and count prime numbers:
 ```{r}
 count <- function(m,n){
   newlist <- generate_primes(m,n)
@@ -162,7 +165,7 @@ count <- function(m,n){
 }
 count(1,10)
 ```
-
+Generate and count prime numbers:
 ```{r}
 count <- function(m,n){
   generate_primes(m,n)
@@ -173,7 +176,7 @@ length(count(1,10))
 ```
 
 
-
+Generate a list of prime numbers:
 **Prime Number Theorem**
 ```{r}
 count <- function(m,n){
