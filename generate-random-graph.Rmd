@@ -5,8 +5,15 @@ output:
   html_document:
     df_print: paged
 ---
+Generate an integer i in [1;10]:
+$i \in [1;10]$
+```{r}
+sample(x=c(1:10),             #integers to choose from
+       size=1                 #the number of integers to choose
+       )
+```
 
-Count number of integers in a closed interval:
+Count number of integers in a closed interval with m=1:
 **Fact 1**
 <br /> m=1
 <br /> n>0
@@ -20,6 +27,7 @@ length(m:n)
 }
 count(1,924310)
 ``` 
+Count number of integers in a closed interval:
 **Fact 3** 
 <br /> $i \in [m;n]$
 <br /> $m \le n$
@@ -33,13 +41,7 @@ print((m+1):(n-1))
 length(count(-10,90))
 ```
 
-Think of an integer i with:
-$i \in [1;10]$
-```{r}
-sample(x=c(1:10),             #integers to choose from
-       size=1                 #the number of integers to choose
-       )
-```
+
 Install package sets:
 ```{r}
 install.packages('sets')
@@ -185,4 +187,9 @@ count <- function(m,n){
   print(newlist)
 }
 length(count(1,2^4))
+```
+
+Get packages installed in base R:
+```{r}
+installed.packages(priority="base")
 ```
