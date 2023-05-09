@@ -193,3 +193,9 @@ Get packages installed in base R:
 ```{r}
 installed.packages(priority="base")
 ```
+
+Find the R version used:
+```{r}
+R.version.string
+```
+
