@@ -198,3 +198,7 @@ Find R version and base packages:
 ```{r}
 sessionInfo()
 ```
+List functions of package 'base':
+```{r}
+library(help = "base")
+```
