@@ -139,22 +139,33 @@ install.packages('primes')
 library(primes)
 ```
 
-
-```{r}
-install.packages('sfsmisc')
-```
-
-
-```{r}
-library(sfsmisc)
-```
-
 Find all primes less than 10:
 ```{r}
-primes(10, pSeq = NULL)
-count <-primes(10, pSeq = NULL)
+generate_primes(1,10)
+count<-generate_primes(1,10)
 length(count)
 ```
+
+
+```{r}
+install.packages('randtoolbox')
+```
+
+```{r}
+library(randtoolbox)
+```
+Find all primes via randtoolbox package:
+```{r}
+items <- get.primes(12)
+items
+for (item in items)
+  if(item<10){
+    print(item)
+  } else{
+    break
+  }
+```
+
 
 ```{r}
 count <- function(m, n){
@@ -162,6 +173,10 @@ generate_primes(m,n)
 }
 count(1,10)
 ```
+
+
+
+
 Count number of prime numbers:
 ```{r}
 count <- function(m,n){
@@ -214,8 +229,3 @@ List functions of package 'base':
 ```{r}
 library(help = "base")
 ```
-
-
-
-
-
