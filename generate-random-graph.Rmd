@@ -174,7 +174,18 @@ generate_primes(m,n)
 count(1,10)
 ```
 
-
+Find all primes less than 8: 
+```{r}
+v <- 1:8
+items <- get.primes(12)
+items
+for (item in items)
+  if(item %in% v){
+    print(item)
+  } else{
+    break
+  }
+```
 
 
 Count number of prime numbers:
