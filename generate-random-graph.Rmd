@@ -240,3 +240,28 @@ List functions of package 'base':
 ```{r}
 library(help = "base")
 ```
+
+Generate random graph with 50 vertices:
+```{r}
+library(igraph)
+
+# Generate a random graph with 50 vertices and edge probability 0.2
+g <- erdos.renyi.game(50, 0.2)
+
+# Plot the graph
+plot(g)
+
+# Calculate the degree distribution of the graph
+deg_dist <- degree_distribution(g)
+
+# Plot the degree distribution
+plot(deg_dist, log="xy", xlab="Degree", ylab="Count")
+
+# Calculate the clustering coefficient of the graph
+clustering_coef <- transitivity(g)
+
+# Print the clustering coefficient
+print(clustering_coef)
+
+```
+
