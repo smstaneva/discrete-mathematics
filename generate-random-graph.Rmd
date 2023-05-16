@@ -264,4 +264,16 @@ clustering_coef <- transitivity(g)
 print(clustering_coef)
 
 ```
-
+```{r}
+install.packages("ggmap")
+```
+```{r}
+library(ggmap)
+```
+```{r}
+citation("ggmap")
+```
+Make Google map:
+```{r}
+qmap('London')
+```
