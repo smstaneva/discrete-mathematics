@@ -265,15 +265,37 @@ print(clustering_coef)
 
 ```
 ```{r}
-install.packages("ggmap")
+install.packages('ggplot2')
 ```
+
 ```{r}
-library(ggmap)
+library(ggplot2)
 ```
+
 ```{r}
-citation("ggmap")
+map_data <- map_data("world")
 ```
-Make Google map:
+
 ```{r}
-qmap('London')
+install.packages("map")
 ```
+
+```{r}
+map_plot <- ggplot(data = map_data, aes(x = long, y = lat, group = group)) +
+  geom_polygon()
+```
+
+Create a map via ggplot2 package:
+```{r}
+map_plot <- ggplot(data = map_data, aes(x = long, y = lat, group = group)) +
+  geom_polygon() +
+  geom_path(color = "white", size = 0.5) +
+  theme_minimal()
+
+print(map_plot)
+```
+
+
+
+
+
