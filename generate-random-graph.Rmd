@@ -294,8 +294,29 @@ map_plot <- ggplot(data = map_data, aes(x = long, y = lat, group = group)) +
 
 print(map_plot)
 ```
+```{r}
+install.packages("leaflet")
+```
 
+```{r}
+library(leaflet)
+```
 
+```{r}
+install.packages("terra")
+```
 
+Create a map via leaflet package:
+```{r}
+# Create a Leaflet map object
+m <- leaflet()
 
+# Set the initial view of the map
+m <- setView(m, lng = -95.7129, lat = 37.0902, zoom = 4)
 
+# Add a base tile layer (e.g., OpenStreetMap)
+m <- addTiles(m)
+
+# Display the map
+m
+```
