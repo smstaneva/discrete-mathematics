@@ -306,13 +306,16 @@ library(leaflet)
 install.packages("terra")
 ```
 
-Create a map via leaflet package:
+Generate a map via leaflet package:
 ```{r}
 # Create a Leaflet map object
 m <- leaflet()
 
 # Set the initial view of the map
-m <- setView(m, lng = -95.7129, lat = 37.0902, zoom = 4)
+m <- setView(m, 
+             lng=-0.127949, 
+             lat=51.507752, 
+             zoom = 10)
 
 # Add a base tile layer (e.g., OpenStreetMap)
 m <- addTiles(m)

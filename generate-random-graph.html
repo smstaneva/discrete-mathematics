@@ -176,9 +176,6 @@ length((m+1):(n-1))
 }
 count(-10,90)</code></pre>
 <pre><code>## [1] 99</code></pre>
-<p>Recall that an integer is one of the numbers in the list:</p>
-<pre class="r"><code>-5:5</code></pre>
-<pre><code>##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</code></pre>
 <p>Which integers are between 1 and 10?</p>
 <pre class="r"><code>2:9</code></pre>
 <pre><code>## [1] 2 3 4 5 6 7 8 9</code></pre>
@@ -192,18 +189,110 @@ count(1,924310)</code></pre>
 <pre class="r"><code>sample(x=c(1:10),             #integers to choose from
        size=1                 #the number of integers to choose
        )</code></pre>
-<pre><code>## [1] 10</code></pre>
+<pre><code>## [1] 3</code></pre>
 <p>Install package sets:</p>
 <pre class="r"><code>install.packages(&#39;sets&#39;)</code></pre>
 <pre><code>## Installing package into &#39;/home/smsta/R/x86_64-pc-linux-gnu-library/3.6&#39;
 ## (as &#39;lib&#39; is unspecified)</code></pre>
 <pre class="r"><code>library(&#39;sets&#39;)</code></pre>
-<p>How many integers i are even with: <span class="math inline">\(i \in [-8;10]\)</span> <br /> <span class="math inline">\(N_{i}\)</span>=?</p>
-<pre class="r"><code>even_seq = seq(-8,10,by=2)
-even_seq</code></pre>
-<pre><code>##  [1] -8 -6 -4 -2  0  2  4  6  8 10</code></pre>
-<pre class="r"><code>length(even_seq)</code></pre>
-<pre><code>## [1] 10</code></pre>
+<p><span class="math inline">\(i \in [-7;9]\)</span> <br /> <span class="math inline">\(N_{i}\)</span>=?</p>
+<pre class="r"><code>odd_seq = seq(-7,9,by=2)
+odd_seq</code></pre>
+<pre><code>## [1] -7 -5 -3 -1  1  3  5  7  9</code></pre>
+<pre class="r"><code>length(odd_seq)</code></pre>
+<pre><code>## [1] 9</code></pre>
+<pre class="r"><code>evens &lt;- function(x){
+  subset(x,             #object to be subsetted
+         x %% 2 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+}
+evens(8:10)</code></pre>
+<pre><code>## [1]  8 10</code></pre>
+<pre class="r"><code>count &lt;-evens(8:10)
+length(count)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<p>Calculate floor of integer(positive and negative):</p>
+<pre class="r"><code>floor(3.14159265)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>Calculate ceiling of integer(positive and negative):</p>
+<pre class="r"><code>ceiling(50.5)</code></pre>
+<pre><code>## [1] 51</code></pre>
+<p><br /> <span class="math inline">\(i \in [1;2n]\)</span> <br /> <span class="math inline">\(N_{i}\)</span>=? <br /> <span class="math inline">\(N_{i}\)</span>=n/2</p>
+<pre class="r"><code>evens &lt;- function(x){
+  subset(x,             #object to be subsetted
+         x %% 2 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+}
+evens(1:10)</code></pre>
+<pre><code>## [1]  2  4  6  8 10</code></pre>
+<pre class="r"><code>count &lt;-evens(1:10)
+length(count)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<p><strong>Fact 4</strong> <br />k&gt;0 <br />n&gt;0 <br /> <span class="math inline">\(i \in [1;kn]\)</span> <br /> <span class="math inline">\(N_{i}\)</span>=? <br /> <span class="math inline">\(N_{i}\)</span>=n/k</p>
+<pre class="r"><code>multiples &lt;- function(x){
+  subset(x,             #object to be subsetted
+         x %% 3 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+}
+multiples(1:10)</code></pre>
+<pre><code>## [1] 3 6 9</code></pre>
+<pre class="r"><code>count &lt;-multiples(1:10)
+length(count)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p><strong>Theorem 1</strong> <br />m&gt;0 <br /> <span class="math inline">\(m \le n\)</span> <br /> <span class="math inline">\(i \in [m;kn]\)</span> <br /> <span class="math inline">\(N_{i}\)</span>=? <br /> <span class="math inline">\(N_{i}\)</span>=(n-m+1)/k m=4 k=5 n=100 <br /> <span class="math inline">\(N_{i}\)</span>=(100-4+1)/5=19.4</p>
+<pre class="r"><code>multiples &lt;- function(x){
+  subset(x,             #object to be subsetted
+         x %% 5 == 0)   #logical expression indicating elements or rows to keep: missing values are taken as false.
+}
+multiples(4:100)</code></pre>
+<pre><code>##  [1]   5  10  15  20  25  30  35  40  45  50  55  60  65  70  75  80  85  90  95
+## [20] 100</code></pre>
+<pre class="r"><code>count &lt;-multiples(4:100)
+length(count)</code></pre>
+<pre><code>## [1] 20</code></pre>
+<p><br /> <span class="math inline">\(\lfloor 4+100.5 \rfloor\)</span></p>
+<pre class="r"><code>floor(4+100.5)</code></pre>
+<pre><code>## [1] 104</code></pre>
+<pre class="r"><code>install.packages(&#39;primes&#39;)</code></pre>
+<pre><code>## Installing package into &#39;/home/smsta/R/x86_64-pc-linux-gnu-library/3.6&#39;
+## (as &#39;lib&#39; is unspecified)</code></pre>
+<pre class="r"><code>library(primes)</code></pre>
+<pre class="r"><code>generate_primes(1,10)</code></pre>
+<pre><code>## [1] 2 3 5 7</code></pre>
+<pre class="r"><code>count&lt;-generate_primes(1,10)
+length(count)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>count &lt;- function(m, n){
+generate_primes(m,n)
+}
+count(1,10)</code></pre>
+<pre><code>## [1] 2 3 5 7</code></pre>
+<pre class="r"><code>count &lt;- function(m,n){
+  newlist &lt;- generate_primes(m,n)
+  length(newlist)
+}
+count(1,10)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>count &lt;- function(m,n){
+  newlist &lt;- generate_primes(m,n)
+  length(newlist)
+}
+count(1,10)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>count &lt;- function(m,n){
+  generate_primes(m,n)
+  newlist &lt;-generate_primes(m,n)
+  print(newlist)
+}
+length(count(1,10))</code></pre>
+<pre><code>## [1] 2 3 5 7</code></pre>
+<pre><code>## [1] 4</code></pre>
+<p><strong>Prime Number Theorem</strong></p>
+<pre class="r"><code>count &lt;- function(m,n){
+  generate_primes(m,n)
+  newlist &lt;-generate_primes(m,n)
+  print(newlist)
+}
+length(count(1,2^4))</code></pre>
+<pre><code>## [1]  2  3  5  7 11 13</code></pre>
+<pre><code>## [1] 6</code></pre>
 
 
 
