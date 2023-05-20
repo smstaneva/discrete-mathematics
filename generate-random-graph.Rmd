@@ -323,3 +323,19 @@ m <- addTiles(m)
 # Display the map
 m
 ```
+Add a description:
+```{r}
+# Create a Leaflet map object
+m <- leaflet() %>%
+setView(m, 
+        lng=-0.127949, 
+        lat=51.507752, 
+        zoom = 10)%>% 
+addMarkers(lng=-0.127230, lat=51.507542, popup="National gallery") 
+
+# Add a base tile layer (e.g., OpenStreetMap)
+m <- addTiles(m)
+
+# Display the map
+m
+```
