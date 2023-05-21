@@ -309,13 +309,12 @@ install.packages("terra")
 Generate a map via leaflet package:
 ```{r}
 # Create a Leaflet map object
-m <- leaflet()
-
-# Set the initial view of the map
-m <- setView(m, 
-             lng=-0.127949, 
-             lat=51.507752, 
-             zoom = 10)
+m <- leaflet() %>%
+setView(m, 
+        lng=-0.127949, 
+        lat=51.507752, 
+        zoom = 10)%>% 
+addMarkers(lng=-0.127230, lat=51.507542, popup="National gallery") 
 
 # Add a base tile layer (e.g., OpenStreetMap)
 m <- addTiles(m)
@@ -323,15 +322,23 @@ m <- addTiles(m)
 # Display the map
 m
 ```
-Add a description:
+
+
 ```{r}
+library(leaflet)
+#Add pop-up with an image
+national_gallery <- paste(sep = "<br/>",
+               paste0("<img src='https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG", "' width=300 />")
+)
+
 # Create a Leaflet map object
 m <- leaflet() %>%
 setView(m, 
         lng=-0.127949, 
         lat=51.507752, 
         zoom = 10)%>% 
-addMarkers(lng=-0.127230, lat=51.507542, popup="National gallery") 
+
+addMarkers(lng=-0.127230, lat=51.507542, popup=national_gallery)
 
 # Add a base tile layer (e.g., OpenStreetMap)
 m <- addTiles(m)
