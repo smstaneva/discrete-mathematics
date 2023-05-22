@@ -323,7 +323,6 @@ m <- addTiles(m)
 m
 ```
 
-
 ```{r}
 library(leaflet)
 #Add pop-up with an image
@@ -342,6 +341,33 @@ addMarkers(lng=-0.127230, lat=51.507542, popup=national_gallery)
 
 # Add a base tile layer (e.g., OpenStreetMap)
 m <- addTiles(m)
+
+# Display the map
+m
+```
+Add static image as an overlay:
+```{r}
+library(leaflet)
+#
+
+# Create a Leaflet map object
+
+customIcon <- makeIcon(
+  iconUrl = "https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG",
+  iconWidth = 100, # Adjust the icon width as needed
+  iconHeight = 100 # Adjust the icon height as needed
+)
+
+m <- leaflet() %>%addTiles() %>%
+setView(m, 
+        lng=-0.127949, 
+        lat=51.507752, 
+        zoom = 10)%>% 
+addMarkers(
+  lng = -0.127230,
+  lat = 51.507542,
+  icon = customIcon,
+  ) # Adjust the icon height as needed
 
 # Display the map
 m
