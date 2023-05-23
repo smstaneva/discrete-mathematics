@@ -345,30 +345,35 @@ m <- addTiles(m)
 # Display the map
 m
 ```
-Add static image as an overlay:
+Add multiple images in bulk:
 ```{r}
 library(leaflet)
-#
 
+image_data <- c("https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG", "https://upload.wikimedia.org/wikipedia/commons/a/a8/London.bankofengland.arp.jpg")
+
+# Example longitude and latitude data
+data <- data.frame(
+  longitude = c(-0.127230, -0.088030),  # Example longitude values
+  latitude = c(51.507542, 51.513721)   # Example latitude values
+)
 # Create a Leaflet map object
 
-customIcon <- makeIcon(
-  iconUrl = "https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG",
-  iconWidth = 100, # Adjust the icon width as needed
-  iconHeight = 100 # Adjust the icon height as needed
-)
-
-m <- leaflet() %>%addTiles() %>%
-setView(m, 
-        lng=-0.127949, 
+map <- leaflet() %>%addTiles() %>%
+setView(lng=-0.127949, 
         lat=51.507752, 
-        zoom = 10)%>% 
-addMarkers(
-  lng = -0.127230,
-  lat = 51.507542,
-  icon = customIcon,
-  ) # Adjust the icon height as needed
+        zoom = 10)
 
+# Loop over the image data and add image markers to the map
+for (i in seq_along(image_data)) {
+  img_path <- image_data[i]
+# Add a marker with a custom icon representing the image
+  map <- map %>%
+addMarkers(
+ lng = data$longitude[i],
+ lat = data$latitude[i],
+  icon = makeIcon(iconUrl = img_path,iconWidth = 100, iconHeight = 100) 
+)
+}
 # Display the map
-m
+map
 ```
