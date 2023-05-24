@@ -377,3 +377,53 @@ addMarkers(
 # Display the map
 map
 ```
+
+```{r}
+install.packages('shiny')
+```
+
+```{r}
+library(shiny)
+```
+
+Use leaflet with shiny:
+```{r}
+library(shiny)
+library(leaflet)
+
+# Image data
+image_data <- c("https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG", "https://upload.wikimedia.org/wikipedia/commons/a/a8/London.bankofengland.arp.jpg")
+
+# Example longitude and latitude data
+data <- data.frame(
+  longitude = c(-0.127230, -0.088030),  # Example longitude values
+  latitude = c(51.507542, 51.513721)   # Example latitude values
+)
+
+ui <- fluidPage(
+  leafletOutput("mymap"),
+  p(),
+  actionButton("recalc", "New points")
+)
+
+server <- function(input, output, session) {
+  points <- eventReactive(input$recalc, {
+    cbind(rnorm(40) * 2 + 13, rnorm(40) + 48)
+  }, ignoreNULL = FALSE)
+
+  output$mymap <- renderLeaflet({
+    leaflet() %>%addTiles() %>%
+      setView(lng=-0.127949, 
+        lat=51.507752, 
+        zoom = 10)%>%
+      addMarkers(data = points()) %>%
+      addMarkers(
+        lng = data$longitude,
+        lat = data$latitude,
+        icon = makeIcon(iconUrl = image_data, iconWidth = 100, iconHeight = 100)
+      )
+  })
+}
+
+shinyApp(ui, server)
+```
