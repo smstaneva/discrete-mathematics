@@ -386,18 +386,19 @@ install.packages('shiny')
 library(shiny)
 ```
 
-Remove button:
+Add a notation:
 ```{r}
 library(shiny)
 library(leaflet)
 
 # Image data
-image_data <- c("https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG", "https://upload.wikimedia.org/wikipedia/commons/a/a8/London.bankofengland.arp.jpg", "https://upload.wikimedia.org/wikipedia/commons/6/64/Bankside_Gallery_%281%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/d/d1/The_British_Museum_today.jpg", "https://upload.wikimedia.org/wikipedia/commons/1/11/Burgh_House_in_New_End_Square_-_geograph.org.uk_-_674944.jpg", "https://upload.wikimedia.org/wikipedia/commons/7/7a/Crafts_Council_building%2C_Pentonville_Road.jpg")
+image_data <- c("https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG", "https://upload.wikimedia.org/wikipedia/commons/a/a8/London.bankofengland.arp.jpg", "https://upload.wikimedia.org/wikipedia/commons/6/64/Bankside_Gallery_%281%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/d/d1/The_British_Museum_today.jpg", "https://upload.wikimedia.org/wikipedia/commons/1/11/Burgh_House_in_New_End_Square_-_geograph.org.uk_-_674944.jpg", "https://upload.wikimedia.org/wikipedia/commons/7/7a/Crafts_Council_building%2C_Pentonville_Road.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/07/Faraday%27s_Lab.jpg", "https://upload.wikimedia.org/wikipedia/commons/f/fc/Cmglee_London_Geffrye_Museum_garden.jpg","https://upload.wikimedia.org/wikipedia/commons/d/db/Guildhall_Art_Gallery_%2814186022081%29.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7e/Rooke-Hogarth.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fb/Horniman_Museum_tower%2C_2015.jpg")
 
 # Example longitude and latitude data
 data <- data.frame(
-  longitude = c(-0.127230, -0.088030, -0.102440, -0.126710, -0.175380, -0.114310),  # Example longitude values
-  latitude = c(51.507542, 51.513721, 51.507320, 51.518021, 51.558170, 51.531400)   # Example latitude values
+  longitude = c(-0.127230, -0.088030, -0.102440, -0.126710, -0.175380, -0.114310, -0.141520, -0.077990, -0.092120, -0.269540, -0.059140),  # Example longitude values
+  latitude = c(51.507542, 51.513721, 51.507320, 51.518021, 51.558170, 51.531400, 51.508671, 51.532822, 51.515202, 51.488010, 51.440540),   # Example latitude values
+  popup = c("National Gallery", "Bank of England Museum", "Bankside Gallery", "British Museum", "Burgh House", "Crafts Council Gallery", "Faraday Museum", "Geffrye Museum", "Guildhall Art Gallery","Hogarth's House","Horniman Museum\nFacilities: AC")
 )
 
 ui <- fluidPage(
@@ -418,6 +419,7 @@ server <- function(input, output, session) {
       addMarkers(
         lng = data$longitude,
         lat = data$latitude,
+        popup = data$popup,
         icon = makeIcon(iconUrl = image_data, iconWidth = 100, iconHeight = 100)
       )
   })
@@ -425,6 +427,3 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
-
-
-
