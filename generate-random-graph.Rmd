@@ -386,7 +386,7 @@ install.packages('shiny')
 library(shiny)
 ```
 
-Add a notation:
+Set the height of map:
 ```{r}
 library(shiny)
 library(leaflet)
@@ -402,8 +402,17 @@ data <- data.frame(
 )
 
 ui <- fluidPage(
-  leafletOutput("mymap")
+  tags$head(
+    tags$style(HTML("
+      #mymap {
+        height: 1000px !important;
+      }
+    "))
+  ),
+  leafletOutput("mymap", height = "1000px")
 )
+  #leafletOutput("mymap")
+#)
 
 server <- function(input, output, session) {
   points <- eventReactive(input$recalc, {
