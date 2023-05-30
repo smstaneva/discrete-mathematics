@@ -387,40 +387,40 @@ library(shiny)
 ```
 
 
-Add geocodes:
+Set leaflet map height to 100%:
 ```{r}
 library(shiny)
 library(leaflet)
 
 # Image data
-image_data <- c("https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG", "https://upload.wikimedia.org/wikipedia/commons/a/a8/London.bankofengland.arp.jpg", "https://upload.wikimedia.org/wikipedia/commons/6/64/Bankside_Gallery_%281%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/d/d1/The_British_Museum_today.jpg", "https://upload.wikimedia.org/wikipedia/commons/1/11/Burgh_House_in_New_End_Square_-_geograph.org.uk_-_674944.jpg", "https://upload.wikimedia.org/wikipedia/commons/7/7a/Crafts_Council_building%2C_Pentonville_Road.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/07/Faraday%27s_Lab.jpg", "https://upload.wikimedia.org/wikipedia/commons/f/fc/Cmglee_London_Geffrye_Museum_garden.jpg","https://upload.wikimedia.org/wikipedia/commons/d/db/Guildhall_Art_Gallery_%2814186022081%29.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7e/Rooke-Hogarth.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fb/Horniman_Museum_tower%2C_2015.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c0/London_Imperial_War_Museum.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c5/Kenwood_House_entrance_lodge.jpg", "https://upload.wikimedia.org/wikipedia/commons/e/e9/The_Museum_of_London_Building_in_2019.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/0e/Museum_of_London_Docklands_-_Joy_of_Museums.jpg", "https://upload.wikimedia.org/wikipedia/commons/8/84/National_Army_Museum_-_Joy_of_Museums.jpg", "https://upload.wikimedia.org/wikipedia/commons/4/48/EH1211481_National_Maritime_Museum_10_%28cropped%29.JPG", "https://upload.wikimedia.org/wikipedia/commons/4/46/National_Portrait_Gallery_%2840400017530%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c1/Natural_History_Museum_London_Jan_2006.jpg", "https://upload.wikimedia.org/wikipedia/commons/b/b7/17_Fleet_Street_London.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/04/Queens_House.jpg","https://upload.wikimedia.org/wikipedia/commons/e/e6/SaatchiGallery.jpg", "https://upload.wikimedia.org/wikipedia/commons/b/b3/Science_Museum%2C_Exhibition_Road_%28cropped%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/5/5e/20110606_London_96.JPG")
+image_data <- c("https://upload.wikimedia.org/wikipedia/commons/d/de/Galer%C3%ADa_Nacional%2C_Londres%2C_Inglaterra%2C_2014-08-07%2C_DD_035.JPG", "https://upload.wikimedia.org/wikipedia/commons/a/a8/London.bankofengland.arp.jpg", "https://upload.wikimedia.org/wikipedia/commons/6/64/Bankside_Gallery_%281%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/d/d1/The_British_Museum_today.jpg", "https://upload.wikimedia.org/wikipedia/commons/1/11/Burgh_House_in_New_End_Square_-_geograph.org.uk_-_674944.jpg", "https://upload.wikimedia.org/wikipedia/commons/7/7a/Crafts_Council_building%2C_Pentonville_Road.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/07/Faraday%27s_Lab.jpg", "https://upload.wikimedia.org/wikipedia/commons/f/fc/Cmglee_London_Geffrye_Museum_garden.jpg","https://upload.wikimedia.org/wikipedia/commons/d/db/Guildhall_Art_Gallery_%2814186022081%29.jpg","https://upload.wikimedia.org/wikipedia/commons/7/7e/Rooke-Hogarth.jpg","https://upload.wikimedia.org/wikipedia/commons/f/fb/Horniman_Museum_tower%2C_2015.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c0/London_Imperial_War_Museum.jpg","https://upload.wikimedia.org/wikipedia/commons/c/c5/Kenwood_House_entrance_lodge.jpg", "https://upload.wikimedia.org/wikipedia/commons/e/e9/The_Museum_of_London_Building_in_2019.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/0e/Museum_of_London_Docklands_-_Joy_of_Museums.jpg", "https://upload.wikimedia.org/wikipedia/commons/8/84/National_Army_Museum_-_Joy_of_Museums.jpg", "https://upload.wikimedia.org/wikipedia/commons/4/48/EH1211481_National_Maritime_Museum_10_%28cropped%29.JPG", "https://upload.wikimedia.org/wikipedia/commons/4/46/National_Portrait_Gallery_%2840400017530%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c1/Natural_History_Museum_London_Jan_2006.jpg", "https://upload.wikimedia.org/wikipedia/commons/b/b7/17_Fleet_Street_London.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/04/Queens_House.jpg","https://upload.wikimedia.org/wikipedia/commons/e/e6/SaatchiGallery.jpg", "https://upload.wikimedia.org/wikipedia/commons/b/b3/Science_Museum%2C_Exhibition_Road_%28cropped%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/5/5e/20110606_London_96.JPG", "https://upload.wikimedia.org/wikipedia/commons/5/50/Sir_John_Soane_Museum_%2813952611347%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/4/45/The_courtyard_of_Somerset_House%2C_Strand%2C_London_-_geograph.org.uk_-_1601172.jpg", "https://upload.wikimedia.org/wikipedia/commons/c/c0/Tate_Britain_%285822081512%29_%282%29.jpg", "https://upload.wikimedia.org/wikipedia/commons/0/00/Tate_Modern_-_Bankside_Power_Station.jpg", "https://upload.wikimedia.org/wikipedia/commons/a/ab/Victoria_%26_Albert_Museum_Entrance%2C_London%2C_UK_-_Diliff.jpg", "https://upload.wikimedia.org/wikipedia/commons/d/df/V%26A_Museum_of_Childhood.jpg", "https://upload.wikimedia.org/wikipedia/commons/7/70/Front_entrance_to_the_Wallace_Collection%2C_Manchester_Square_-_geograph.org.uk_-_1600012.jpg")
 
 # Example longitude and latitude data
 data <- data.frame(
-  longitude = c(-0.127230, -0.088030, -0.102440, -0.126710, -0.175380, -0.114310, -0.141520, -0.077990, -0.092120, -0.269540, -0.059140, -0.107450, -0.159600, -0.092750, -0.025530, -0.158780, -0.003280, -0.127230, -0.175720, -0.106230, -0.003393, -0.158706, -0.173234, -0.175475),  # Example longitude values
-  latitude = c(51.507542, 51.513721, 51.507320, 51.518021, 51.558170, 51.531400, 51.508671, 51.532822, 51.515202, 51.488010, 51.440540, 51.497452, 51.572620, 51.517460, 51.506302, 51.487740, 51.483051, 51.508949, 51.495548, 51.514198, 51.483191, 51.490605, 51.49496, 51.505022),   # Example latitude values
-  popup = c("National Gallery", "Bank of England Museum", "Bankside Gallery", "British Museum", "Burgh House", "Crafts Council Gallery", "Faraday Museum", "Geffrye Museum", "Guildhall Art Gallery","Hogarth's House","Horniman Museum\nFacilities: AC", "Imperial War Museum\nFacilities: AC", "Kenwood House", "Museum of London\nFacilities: AC", "Museum of London Docklands\nFacilities: AC", "National Army Museum\nFacilities: AC", "National Maritime Museum\nFacilities: AC", "National Portrait Gallery", "Natural History Museum\nFacilities: AC", "Prince Henry's Room", "Queen's House", "Saatchi Collection\nFacilities: AC", "Science Museum\nFacilities: AC", "Serpentine Gallery")
+  longitude = c(-0.127230, -0.088030, -0.102440, -0.126710, -0.175380, -0.114310, -0.141520, -0.077990, -0.092120, -0.269540, -0.059140, -0.107450, -0.159600, -0.092750, -0.025530, -0.158780, -0.003280, -0.127230, -0.175720, -0.106230, -0.003393, -0.158706, -0.173234, -0.175475, -0.117020, -0.117330, -0.125520, -0.095110, -0.181110, -0.877978, -0.153337),  # Example longitude values
+  latitude = c(51.507542, 51.513721, 51.507320, 51.518021, 51.558170, 51.531400, 51.508671, 51.532822, 51.515202, 51.488010, 51.440540, 51.497452, 51.572620, 51.517460, 51.506302, 51.487740, 51.483051, 51.508949, 51.495548, 51.514198, 51.483191, 51.490605, 51.49496, 51.505022, 51.516950, 51.512100, 51.491970, 51.508129, 51.495110, 51.154952, 51.517325),   # Example latitude values
+  popup = c("National Gallery", "Bank of England Museum", "Bankside Gallery", "British Museum", "Burgh House", "Crafts Council Gallery", "Faraday Museum", "Geffrye Museum", "Guildhall Art Gallery","Hogarth's House","Horniman Museum\nFacilities: AC", "Imperial War Museum\nFacilities: AC", "Kenwood House", "Museum of London\nFacilities: AC", "Museum of London Docklands\nFacilities: AC", "National Army Museum\nFacilities: AC", "National Maritime Museum\nFacilities: AC", "National Portrait Gallery", "Natural History Museum\nFacilities: AC", "Prince Henry's Room", "Queen's House", "Saatchi Collection\nFacilities: AC", "Science Museum\nFacilities: AC", "Serpentine Gallery", "Sir John Soane's Museum", "Somerset House\n Facilities: AC", "Tate Britain\n Facilities: AC", "Tate Modern\n Facilities: AC", "Victoria and Albert Museum\n Facilities: AC", "Victoria and Albert Museum of Childhood", "Wallace Collection")
 )
 
 ui <- fluidPage(
   tags$head(
     tags$style(HTML("
       #mymap {
-        height: 1000px !important;
+        height: 100vh !important;
       }
     "))
   ),
   fluidRow(
     column(
       width = 3,
-      selectInput("ac_filter", "Select AC Facilities:",
-                  choices = c("All", "With AC"),
+      selectInput("ac_filter", "Select Facilities:",
+                  choices = c("All", "Museums with AC"),
                   selected = "All"
       )
     ),
     column(
       width = 9,
-  leafletOutput("mymap", height = "1000px")
+  leafletOutput("mymap", height = "100vh")
     )
   )
 )
@@ -453,4 +453,3 @@ server <- function(input, output, session) {
 
 shinyApp(ui, server)
 ```
-
