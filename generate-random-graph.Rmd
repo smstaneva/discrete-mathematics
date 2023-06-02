@@ -27,20 +27,20 @@ length(m:n)
 count(1,924310)
 ``` 
 
-Represent integer count on a number line:
+Represent integer count on number line:
 ```{r}
 # Specify the two numbers
-number1 <- 10
-number2 <- 5
+m <- 10
+n <- 5
 
 # Calculate the number of integers between two numbers in a closed interval
-count <- abs(number1 - number2) + 1
+count <- abs(n - m) + 1
 
 # Create a number line plot
 plot(0, 
      type = "n", 
-     xlim = c(min(number1, number2) - 1, 
-              max(number1, number2) + 1), 
+     xlim = c(min(m, n) - 1, 
+              max(m, n) + 1), 
               ylim = c(0, 1), xlab = "", 
               ylab = "", 
               xaxt = "n", 
@@ -48,21 +48,21 @@ plot(0,
               main = "Number Line")
 
 # Add tick marks for the numbers
-axis(1, at = number1:number2)
+axis(1, at = m:n)
 
 # Add a line segment to represent the range of integers
-segments(number1, 0.5, number2, 0.5, 
+segments(m, 0.5, n, 0.5, 
          lwd = 3, 
          col = "blue")
 
 # Add a text label for the count
-text((number1 + number2) / 2, 0.6, paste("Count:", count))
+text((m + n) / 2, 0.6, paste("Count:", count))
 
 # Add a text label for number1
-text(number1, 0.8, number1)
+text(m, 0.8, m)
 
 # Add a text label for number2
-text(number2, 0.8, number2)
+text(n, 0.8, n)
 
 # Add a title to the plot
 title(main = "Visualization of Count of Integers on Number Line")
