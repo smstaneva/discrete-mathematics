@@ -37,15 +37,13 @@ n <- 5
 count <- abs(n - m) + 1
 
 # Create a number line plot
-plot(0, 
-     type = "n", 
-     xlim = c(min(m, n) - 1, 
-              max(m, n) + 1), 
-              ylim = c(0, 1), xlab = "", 
+plot(0,             # Start from 0 on the graph
+     type = "n",    # no plotting, no line
+     xlim = c(min(m, n) - 1, max(m, n) + 1),             # Set limits for the x-axis and determine smaller value between the numbers
+              ylim = c(0, 1), xlab = "",                 # Set limits for the y-axis
               ylab = "", 
               xaxt = "n", 
-              yaxt = "n", 
-              main = "Number Line")
+              yaxt = "n")
 
 # Add tick marks for the numbers
 axis(1, at = m:n)
@@ -65,9 +63,8 @@ text(m, 0.8, m)
 text(n, 0.8, n)
 
 # Add a title to the plot
-title(main = "Visualization of Count of Integers on Number Line")
+title(main = "Count of Integers on Number Line")
 
-```
 ```
 
 Count number of integers in a closed interval:
