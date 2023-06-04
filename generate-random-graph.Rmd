@@ -40,10 +40,10 @@ count <- abs(n - m) + 1
 plot(0,             # Start from 0 on the graph
      type = "n",    # no plotting, no line
      xlim = c(min(m, n) - 1, max(m, n) + 1),             # Set limits for the x-axis and determine smaller value between the numbers
-              ylim = c(0, 1), xlab = "",                 # Set limits for the y-axis
-              ylab = "", 
-              xaxt = "n", 
-              yaxt = "n")
+              ylim = c(0, 1),                            # Set limits for the y-axis
+              xlab = "",                                 # Set label for the x-axis to none         
+              ylab = "")                                 # Set label for the y-axis to none
+
 
 # Add tick marks for the numbers
 axis(1, at = m:n)
