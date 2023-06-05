@@ -304,6 +304,7 @@ clustering_coef <- transitivity(g)
 print(clustering_coef)
 
 ```
+
 ```{r}
 install.packages('ggplot2')
 ```
@@ -498,5 +499,44 @@ server <- function(input, output, session) {
 shinyApp(ui, server)
 ```
 
+Generate map of marinas:
+```{r}
+library(leaflet)
+
+# Create a leaflet map
+map <- leaflet() %>%
+  setView(lng = -2.5, lat = 54, zoom = 6) %>%
+  addTiles()
+
+# Define the towns to be marked
+marked_towns <- data.frame(
+  town = c("Lowestoft", "Chelmsford", "Portchester"),
+  longitude = c(-86.900960, -4.107210, -4.107210),  # Adjust the longitude coordinates
+  latitude = c(35.766570, 50.364940, 50.364941),  # Adjust the latitude coordinates
+  popup = c("Port A", "Port B", "Port C")
+)
 
 
+# Define the custom icon
+custom_icon <- makeIcon(
+  iconUrl = "https://upload.wikimedia.org/wikipedia/commons/f/f1/SV_Europa_barque_2007-07.jpg", 
+  iconWidth = 25,
+  iconHeight = 41
+)
+
+# Iterate through the marked towns and add markers with the custom icon
+for (town in marked_towns) {
+  map <- addMarkers(
+    map,
+    lng = marked_towns$longitude,               
+    lat = marked_towns$latitude,
+    label = town,
+    icon = custom_icon,
+    popup = marked_towns$popup
+  )
+}
+
+# Display the map
+map
+
+```
